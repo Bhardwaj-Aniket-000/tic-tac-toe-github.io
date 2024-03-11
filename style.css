@@ -7,7 +7,8 @@
 body {
 	height: 100vh;
 	width: 100vw;
-	background-color: #000;
+	background-color: #091a32;
+	position: relative;
 }
 .container {
 	height: 70vh;
@@ -17,35 +18,34 @@ body {
 .game {
 	width: 40%;
 	height: 70%;
+	font-size: 30px;
 	padding: 20px 20px 20px 70px;
 	margin: 0px auto;
 	display: grid;
 	grid-template-columns: 80px 80px 80px;
 	grid-template-rows: 80px 80px 80px;
-	gap: 3px;
+	gap: 5px;
 }
 .box {
 	height: 80px;
 	width: 80px;
 	border-radius: 10px;
 	border: 1px solid #f3f8f8;
-	box-shadow: 2px 2px 0px 0px rgba(224, 253, 3, 0.516);
 	background: transparent;
 	font-size: 30px;
 	font-weight: 700;
-	color: rgb(244, 244, 238);
+	color: #091a32;
 	font-family: Arial, Helvetica, sans-serif;
 	display: none;
 }
 .box:hover {
 	cursor: pointer;
 }
-button[type="button"],
 button[type="reset"] {
 	display: block;
-	margin: -20px auto;
+	margin: 20px auto;
 	padding: 7px 10px;
-	width: 120px;
+	width: 100px;
 	border: none;
 	border-radius: 3px;
 	background-color: green;
@@ -54,60 +54,85 @@ button[type="reset"] {
 	font-family: Arial, Helvetica, sans-serif;
 	cursor: pointer;
 	position: relative;
-}
-button[type="reset"] {
-	margin: 20px auto;
 	display: none;
 }
+button[type="reset"]:hover {
+	transform: scale(1.02);
+}
 p {
-	padding: 10px;
+	padding: 30px 0px 0px;
 	width: 300px;
-	border: 1px solid #ffffff2e;
 	border-radius: 5px;
 	text-transform: capitalize;
 	font-size: 12px;
 	text-align: center;
-	margin: 30px auto 0px;
-	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px auto;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+		"Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 	display: none;
 }
 h2 {
 	color: green;
 	font-family: Arial, Helvetica, sans-serif;
-	margin: 30px 0px 0px;
+	margin: 40px 0px 0px;
 	text-transform: capitalize;
 	text-align: center;
-	visibility: hidden;
 }
-select {
-	width: 130px;
-	display: block;
-	padding: 5px 5px 5px 10px;
-	text-transform: capitalize;
-	border: 1px solid rgba(0, 242, 255, 0.45);
-	outline: none;
-	border-radius: 4px;
-	margin: 20px auto;
-	background-color: #0b0b0b;
-	box-shadow: inset 0px 0px 6px 2px #03ebf384;
-	cursor: pointer;
+.clip {
+	height: 100vh;
+	width: 100vw;
+	background-color: #fff;
+	z-index: 10;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: fixed;
+	top: 0;
+}
+.clip img {
+	height: 40%;
+	animation: img_transition 0.5s linear;
+}
+
+@keyframes img_transition {
+	0% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
+.gif-loader {
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0px;
+	z-index: 5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/* background-color: #ff1818; */
+	background-color: #FF4C4C;
 	display: none;
 }
-select option {
-	color: rgb(4, 226, 246);
-	font-size: 12px;
+.gif-loader img {
+	height: 50%;
+	width: 50%;
+	/* filter: contrast(1); */
 }
 
 @media only screen and (max-width: 480px) and (min-width: 320px) {
 	body {
 		background-color: #091a32;
+
 	}
 	.container {
 		height: 100vh;
 		width: 100vw;
 		margin: auto;
 	}
-	.inner-container{
+	.inner-container {
 		width: 80%;
 		height: 50%;
 		margin: 0px auto;
@@ -128,17 +153,6 @@ select option {
 		width: 60px;
 		font-size: 20px;
 		font-family: Arial, Helvetica, sans-serif;
-		color: #f7f4f4;
-	}
-
-	button[type="button"] {
-		position: absolute;
-		left: 32%;
-		top: 50%;
-		background-color: #000;
-		font-weight: 100;
-		font-size: 13px;
-		letter-spacing: 1px;
 	}
 	button[type="reset"] {
 		display: block;
@@ -146,11 +160,10 @@ select option {
 		border-radius: 5px;
 		font-weight: 500;
 		font-size: 13px;
-		background-color: #000;
+		background-color: #039e08;
 		margin: 10px auto;
 		display: none;
 	}
-
 	p {
 		padding: 10px;
 		width: 250px;
@@ -165,5 +178,30 @@ select option {
 		font-size: 17px;
 		font-family: Arial, Helvetica, sans-serif;
 		margin: 40px 0px 20px;
+	}
+
+	.clip img {
+		height: 25%;
+		animation: img_transition 0.5s linear;
+	}
+
+	@keyframes img_transition {
+		0% {
+			opacity: 0%;
+		}
+		100% {
+			opacity: 100%;
+		}
+	}
+	.gif-loader {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #FF4C4C;
+	}
+	.gif-loader img {
+		height: 50%;
+		width: 50%;
+		/* filter: contrast(2); */
 	}
 }

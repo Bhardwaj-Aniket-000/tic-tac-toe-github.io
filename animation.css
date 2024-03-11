@@ -2,8 +2,8 @@
 	height: 50px;
 	width: 150px;
 	position: absolute;
-	top: 45%;
-	left: 34%;
+	top: 44%;
+	left: 45%;
 	display: none;
 }
 .pppa,
@@ -24,9 +24,36 @@
 	}
 	50% {
 		transform: scale(1.7);
-		background-color: rgb(2, 9, 150);
+		background-color: rgb(119, 1, 158);
 	}
 	100% {
 		transform: scale(0.5);
+	}
+}
+
+.scale {
+	animation: scale-box 1s linear infinite;
+}
+@keyframes scale-box {
+	0% {
+		scale: 1;
+		box-shadow: inset 0px 0px 5px 2px rgba(253, 24, 3, 0.993);
+		visibility: hidden;
+	}
+	50% {
+		scale: 0.7;
+		display: block;
+		box-shadow: inset 0px 0px 5px 2px rgba(253, 3, 3, 0.992);
+		visibility: visible;
+	}
+	100% {
+		scalex: 0.4;
+		box-shadow: inset 0px 0px 5px 2px rgb(253, 16, 3);
+		visibility: hidden;
+	}
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+	.ppp {
+		left: 37%;
 	}
 }
